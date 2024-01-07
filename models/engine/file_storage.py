@@ -111,7 +111,11 @@ class FileStorage:
             retrieves one object based on class name and id
         """
         if cls and id:
-            fetch_obj = "{}.{}".format(cls, id)
+            for key in FileStorage.CNC.keys():
+                if FileStorage.CNC[key] == cls:
+                    cls_name = key
+                    break
+            fetch_obj = "{}.{}".format(cls_name, id)
             all_obj = self.all(cls)
             return all_obj.get(fetch_obj)
         return None
@@ -120,4 +124,8 @@ class FileStorage:
         """
         count of all objects in storage
         """
-        return (len(self.all(cls)))
+        if not cls:
+            key_list = [key for key in self.all().keys()]
+        else:
+            key_list = [key for key in self.all(cls).keys()]
+        return len(key_list)
