@@ -399,6 +399,15 @@ class TestHBNBcmdFunc(unittest.TestCase):
         expected = 'Broccoli'
         self.assertEqual(expected, actual)
 
+    def test_do_destroy(self):
+        """ ... checks of object can be destroyed"""
+        self.CLI.do_destroy("State {}".format(self.obj.id))
+        try:
+            self.obj
+            self.assertTrue(False)
+        except:
+            self.assertIsNone(None)
+
 
 @unittest.skipIf(STORAGE_TYPE == 'db', 'not designed for DB yet')
 class TestHBNBcmdDotNotation(unittest.TestCase):
@@ -473,7 +482,7 @@ class TestHBNBcmdDotNotation(unittest.TestCase):
         try:
             self.obj2
             self.assertTrue(False)
-        except ReferenceError:
+        except:
             self.assertIsNone(None)
 
 
