@@ -1,8 +1,8 @@
 <img src="https://github.com/jarehec/AirBnB_clone_v3/blob/master/dev/HBTN-hbnb-Final.png" width="160" height=auto />
 
-# AirBnB Clone: Phase # 3
+# AirBnB Clone: Third Iteration
 
-: API with Swagger
+: RESTFUL API
 
 ## Description
 
@@ -45,8 +45,6 @@ HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_test_db HBNB_TYPE_STORAGE=db \
   * __python:__ PEP 8 (v. 1.7.0)
   * __web static:__ [W3C Validator](https://validator.w3.org/)
   * __bash:__ ShellCheck 0.3.3
-
-<img src="https://github.com/jarehec/AirBnB_clone_v3/blob/master/dev/hbnb_step5.png" />
 
 ## Configuration Files
 
@@ -219,7 +217,5 @@ github repo
 * __Jared Heck__ - <[jarehec](https://github.com/jarehec)> | <[@jarehec](https://twitter.com/jarehec)>
 * __Brennan D Baraban__ - <[bdbaraban](https://github.com/bdbaraban)> | <[@bdov_](https://twitter.com/bdov_)>
 * __Derrick Gee__ - <[kai-dg](https://github.com/kai-dg)> | <[@the_haru_kai](https://twitter.com/the_haru_kai)>
-
-## License
-
-MIT License
+* __Matthias Sunday Oduh__ - <[matthiasVincent](https://github.com/matthiasVincent)> | <[portfolio site here](Matthias28908ue14.pythonanywhere.com)>
+* __Mary Bakare__ - <[MercifulMary](https://github.com/MercifulMary)>
