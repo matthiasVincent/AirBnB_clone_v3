@@ -13,12 +13,14 @@ def reviews_per_place(place_id=None):
     """
         reviews route to handle http method for requested reviews by place
     """
-    place_obj = storage.get('Place', place_id)
+    Place = CNC.get("Place")
+    place_obj = storage.get(Place, place_id)
 
     if request.method == 'GET':
         if place_obj is None:
             abort(404, 'Not found')
-        all_reviews = storage.all('Review')
+        Review = CNC.get("Review")
+        all_reviews = storage.all(Review)
         place_reviews = [obj.to_dict() for obj in all_reviews.values()
                          if obj.place_id == place_id]
         return jsonify(place_reviews)
@@ -32,7 +34,8 @@ def reviews_per_place(place_id=None):
         user_id = req_json.get("user_id")
         if user_id is None:
             abort(400, 'Missing user_id')
-        user_obj = storage.get('User', user_id)
+        User = CNC.get("User")
+        user_obj = storage.get(User, user_id)
         if user_obj is None:
             abort(404, 'Not found')
         if req_json.get('text') is None:
@@ -49,7 +52,8 @@ def reviews_with_id(review_id=None):
     """
         reviews route to handle http methods for given review by ID
     """
-    review_obj = storage.get('Review', review_id)
+    Review = CNC.get("Review")
+    review_obj = storage.get(Review, review_id)
 
     if request.method == 'GET':
         if review_obj is None:
