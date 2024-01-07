@@ -48,7 +48,7 @@ class DBStorage:
         """
         obj_dict = {}
         if cls is not None:
-            a_query = self.__session.query(cls)
+            a_query = self.__session.query(DBStorage.CNC[cls])
             for obj in a_query:
                 obj_ref = "{}.{}".format(type(obj).__name__, obj.id)
                 obj_dict[obj_ref] = obj
@@ -120,11 +120,7 @@ class DBStorage:
             retrieves one object based on class name and id
         """
         if cls and id:
-            for key  in DBStorage.CNC.keys():
-                if DBStorage.CNC[key] == cls:
-                    cls_name = key
-                    break
-            fetch = "{}.{}".format(cls_name, id)
+            fetch = "{}.{}".format(cls, id)
             all_obj = self.all(cls)
             return all_obj.get(fetch)
         return None
@@ -133,8 +129,4 @@ class DBStorage:
         """
             returns the count of all objects in storage
         """
-        if not cls:
-            key_list = [key for key in self.all().keys()]
-        else:
-            key_list = [key for key in self.all(cls).keys()]
-        return len(key_list)
+        return (len(self.all(cls)))

@@ -13,14 +13,12 @@ def cities_per_state(state_id=None):
     """
         cities route to handle http method for requested cities by state
     """
-    State = CNC.get("State")
-    state_obj = storage.get(State, state_id)
+    state_obj = storage.get('State', state_id)
     if state_obj is None:
         abort(404, 'Not found')
 
     if request.method == 'GET':
-        City = CNC.get("City")
-        all_cities = storage.all(City)
+        all_cities = storage.all('City')
         state_cities = [obj.to_dict() for obj in all_cities.values()
                         if obj.state_id == state_id]
         return jsonify(state_cities)
@@ -43,8 +41,7 @@ def cities_with_id(city_id=None):
     """
         cities route to handle http methods for given city
     """
-    City = CNC.get("City")
-    city_obj = storage.get(City, city_id)
+    city_obj = storage.get('City', city_id)
     if city_obj is None:
         abort(404, 'Not found')
 

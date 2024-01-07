@@ -14,22 +14,19 @@ def amenities_per_place(place_id=None):
     """
         reviews route to handle http method for requested reviews by place
     """
-    Place = CNC.get("Place")
-    place_obj = storage.get(Place, place_id)
+    place_obj = storage.get('Place', place_id)
 
     if request.method == 'GET':
         if place_obj is None:
             abort(404, 'Not found')
-        Amenity = CNC.get("Amenity")
-        all_amenities = storage.all(Amenity)
+        all_amenities = storage.all('Amenity')
         if STORAGE_TYPE == 'db':
             place_amenities = place_obj.amenities
         else:
             place_amen_ids = place_obj.amenities
             place_amenities = []
             for amen in place_amen_ids:
-                Amenity = CNC.get("Amenity")
-                place_amenities.append(storage.get(Amenity, amen))
+                response.append(storage.get('Amenity', amen))
         place_amenities = [
             obj.to_dict() for obj in place_amenities
             ]
@@ -42,10 +39,8 @@ def amenity_to_place(place_id=None, amenity_id=None):
     """
         reviews route to handle http methods for given review by ID
     """
-    Place = CNC.get("Place")
-    Amenity = CNC.get("Amenity")
-    place_obj = storage.get(Place, place_id)
-    amenity_obj = storage.get(Amenity, amenity_id)
+    place_obj = storage.get('Place', place_id)
+    amenity_obj = storage.get('Amenity', amenity_id)
     if place_obj is None:
         abort(404, 'Not found')
     if amenity_obj is None:

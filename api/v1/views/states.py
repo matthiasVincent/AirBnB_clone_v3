@@ -14,7 +14,6 @@ def states_no_id():
         states route to handle http method for requested states no id provided
     """
     if request.method == 'GET':
-        State = CNC.get("State")
         all_states = storage.all('State')
         all_states = list(obj.to_dict() for obj in all_states.values())
         return jsonify(all_states)
@@ -36,8 +35,7 @@ def states_with_id(state_id=None):
     """
         states route to handle http method for requested state by id
     """
-    State = CNC.get("State")
-    state_obj = storage.get(State, state_id)
+    state_obj = storage.get('State', state_id)
     if state_obj is None:
         abort(404, 'Not found')
 
