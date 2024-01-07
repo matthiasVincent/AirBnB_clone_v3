@@ -66,7 +66,6 @@ class TestFileStorageDocs(unittest.TestCase):
         pep8style = pep8.StyleGuide(quiet=True)
         errors = pep8style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(errors.total_errors, 0, errors.messages)
-
     def test_file_is_executable(self):
         """... tests if file has correct permissions so user can execute"""
         file_stat = stat('models/engine/file_storage.py')
