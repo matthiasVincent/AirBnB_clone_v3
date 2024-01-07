@@ -26,7 +26,7 @@ def amenities_per_place(place_id=None):
             place_amen_ids = place_obj.amenities
             place_amenities = []
             for amen in place_amen_ids:
-                response.append(storage.get('Amenity', amen))
+                place_amenities.append(storage.get('Amenity', amen))
         place_amenities = [
             obj.to_dict() for obj in place_amenities
             ]

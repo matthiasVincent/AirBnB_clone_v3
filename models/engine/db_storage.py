@@ -48,7 +48,10 @@ class DBStorage:
         """
         obj_dict = {}
         if cls is not None:
-            a_query = self.__session.query(DBStorage.CNC[cls])
+            if type(cls) is str:
+                a_query = self.__session.query(DBStorage.CNC[cls])
+            else:
+                a_query = self.__session.query(cls)
             for obj in a_query:
                 obj_ref = "{}.{}".format(type(obj).__name__, obj.id)
                 obj_dict[obj_ref] = obj
@@ -120,7 +123,10 @@ class DBStorage:
             retrieves one object based on class name and id
         """
         if cls and id:
-            fetch = "{}.{}".format(cls, id)
+            if type(cls) is str:
+                fetch = "{}.{}".format(cls, id)
+            else:
+                fetch = "{}.{}".format(cls.__name__, id)
             all_obj = self.all(cls)
             return all_obj.get(fetch)
         return None
