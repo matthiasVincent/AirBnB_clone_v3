@@ -217,5 +217,5 @@ github repo
 * __Jared Heck__ - <[jarehec](https://github.com/jarehec)> | <[@jarehec](https://twitter.com/jarehec)>
 * __Brennan D Baraban__ - <[bdbaraban](https://github.com/bdbaraban)> | <[@bdov_](https://twitter.com/bdov_)>
 * __Derrick Gee__ - <[kai-dg](https://github.com/kai-dg)> | <[@the_haru_kai](https://twitter.com/the_haru_kai)>
-* __Matthias Sunday Oduh__ - <[matthiasVincent](https://github.com/matthiasVincent)> | <[portfolio site here](Matthias28908ue14.pythonanywhere.com)>
+* __Matthias Sunday Oduh__ - <[matthiasVincent](https://github.com/matthiasVincent)> | <[portfolio site here](https://matthias28908ue14.pythonanywhere.com)>
 * __Mary Bakare__ - <[MercifulMary](https://github.com/MercifulMary)>
