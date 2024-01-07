@@ -37,7 +37,13 @@ class FileStorage:
         if cls is not None:
             new_objs = {}
             for clsid, obj in FileStorage.__objects.items():
-                if type(obj).__name__ == cls:
+                if type(cls) is str:
+                    if clsid.split(".")[0] == cls:
+                        new_objs[clsid] = obj
+                else:
+                    if clsid.split(".")[0] == cls.__name__:
+                        new_objs[clsid] = obj
+                if clsid.split(".")[0] == type(cls).__name__:
                     new_objs[clsid] = obj
             return new_objs
         else:
@@ -111,7 +117,10 @@ class FileStorage:
             retrieves one object based on class name and id
         """
         if cls and id:
-            fetch_obj = "{}.{}".format(cls, id)
+            if type(cls) is str:
+                fetch_obj = "{}.{}".format(cls, id)
+            else:
+                fetch_obj = "{}.{}".format(cls.__name__, id)
             all_obj = self.all(cls)
             return all_obj.get(fetch_obj)
         return None
