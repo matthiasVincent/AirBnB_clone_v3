@@ -24,14 +24,8 @@ application is designed to run with 2 storage engine models:
 
   * The Database uses Environmental Variables for tests.  To execute tests with
   the environmental variables prepend these declarations to the execution
-  command:
-
-```
-$ HBNB_MYSQL_USER=hbnb_test HBNB_MYSQL_PWD=hbnb_test_pwd \
-HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_test_db HBNB_TYPE_STORAGE=db \
-[COMMAND HERE]
-```
-
+  command: 
+AirBnB 
 ## Environment
 
 * __OS:__ Ubuntu 14.04 LTS
